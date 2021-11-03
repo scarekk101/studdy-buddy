@@ -1,27 +1,29 @@
-import React from 'react';
+import { React, useState, useEffect } from 'react';
 import { users } from 'data/users';
 import UserListItem from 'components/molecules/UserListItem/UserListItem';
-import styled from 'styled-components';
+import {
+  Wrapper,
+  StyledList,
+} from 'components/organisms/UsersList/UsersList.styles';
 
-const Wrapper = styled.div`
-  background-color: white;
-  padding: 40px 30px;
-  border-radius: 25px;
-  box-shadow: 0 5px 15px -10px rgba(0, 0, 0, 0.3);
-  width: 25%;
-`;
-
-const StyledList = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
-`;
 const UsersList = () => {
+  const [usersData, setUsers] = useState([...users]);
+
+  function deleteUser(name) {
+    const filteredUsers = usersData.filter((nameItem) =>
+      nameItem.name !== name ? nameItem : null
+    );
+    setUsers(filteredUsers);
+  }
+
   return (
     <Wrapper>
       <StyledList>
-        {users.map((userData) => (
-          <UserListItem userData={userData} />
+        {usersData.map((userData) => (
+          <UserListItem
+            filteredUsers={deleteUser}
+            userData={userData}
+          />
         ))}
       </StyledList>
     </Wrapper>
