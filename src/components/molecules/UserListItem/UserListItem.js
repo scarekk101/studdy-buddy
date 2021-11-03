@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { ThemeConsumer } from 'styled-components';
+import styled from 'styled-components';
 import Button from 'components/atoms/Button/Button';
 
 const Wrapper = styled.li`
@@ -27,12 +27,7 @@ const UserInfo = styled.p`
 
 const AverageInfo = styled.div`
   border-radius: 50px;
-  background: ${({ theme, value }) => {
-    if (value > 4) return theme.colors.success;
-    if (value > 3) return theme.colors.warning;
-    if (value > 2) return theme.colors.error;
-    return theme.colors.grey;
-  }};
+  background: ${({ theme, value }) => value >= 4 ? theme.colors.success : value >= 3 ? theme.colors.lightGrey : value >= 2 ? theme.colors.warning : theme.colors.error};
   width: 30px;
   height: 30px;
   display: flex;
