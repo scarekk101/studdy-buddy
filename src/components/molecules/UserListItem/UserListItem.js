@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'components/atoms/Button/Button';
+import Button from 'components/atoms/DeleteButton/DeleteButton';
 import {
   Wrapper,
   AverageInfo,
   UserInfo,
 } from 'components/molecules/UserListItem/UserListItem.styles';
 
-const UserListItem = ({ filteredUsers, userData: { average, name, attendance = '0%' } }) => (
+const UserListItem = ({
+  filteredUsers,
+  userData: { average, name, attendance = '0%' },
+}) => (
   <Wrapper>
     <AverageInfo value={average}> {average}</AverageInfo>
     <div>
