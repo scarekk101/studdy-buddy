@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LogoItem } from './Logo.styles';
+import { LogoWrapper, LogoHeader } from './Logo.styles';
 
 const Logo = ({ logoText }) => {
-  return <LogoItem>{logoText}</LogoItem>;
+  return (
+    <LogoWrapper>
+      <LogoHeader>{logoText}</LogoHeader>
+    </LogoWrapper>
+  );
 };
 
 Logo.propTypes = {

@@ -1,14 +1,36 @@
-import { ComponentWrapper as Wrapper } from 'components/atoms/ComponentWrapper/ComponentWrapper.styles';
+import { ViewWrapper } from 'templates/ViewWrapper/ViewWrapper';
+import React, { useContext, useState } from 'react';
 import FormField from 'components/molecules/FormField/FormField';
 import DefaultButton from 'components/atoms/Button/Button';
+import { UserProviders } from 'providers/UserProvider';
 
-const Form = ({ addUser, changeInputValue, inputValues }) => {
+const Form = () => {
+  const UserDatas = useContext(UserProviders);
+  const [inputValues, setInputValue] = useState({});
+
+  function changeInputValue(e) {
+    setInputValue({
+      ...inputValues,
+      [e.target.name]: e.target.value,
+    });
+  }
+
+  function handleAddUser(e) {
+    e.preventDefault();
+    UserDatas.addUser(inputValues);
+    setInputValue({
+      average: '',
+      name: '',
+      attendance: '',
+    });
+  }
+
   return (
     <>
-      <Wrapper as="form" onSubmit={addUser}>
+      <ViewWrapper as="form" onSubmit={handleAddUser}>
         <h2>Add new User</h2>
         <FormField
-          id="Name"
+          id="name"
           type="text"
           name="name"
           label="Name"
@@ -32,7 +54,7 @@ const Form = ({ addUser, changeInputValue, inputValues }) => {
           onChange={changeInputValue}
         />
         <DefaultButton ButtonText="Add User" />
-      </Wrapper>
+      </ViewWrapper>
     </>
   );
 };

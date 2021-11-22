@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Label from 'components/atoms/Label/Label';
-import { Input } from 'components/atoms/Input/Input';
+import Input from 'components/atoms/Input/Input';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -24,11 +24,12 @@ const FormField = ({ label, id, name, type = 'text', value, onChange }) => {
 };
 
 FormField.propTypes = {
-  label: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  id: PropTypes.number,
+  name: PropTypes.string,
   type: PropTypes.string,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 export default FormField;

@@ -1,17 +1,16 @@
-import { React } from 'react';
+import React, { useContext } from 'react';
 import UserListItem from 'components/molecules/UserListItem/UserListItem';
 import { StyledList } from 'components/organisms/UsersList/UsersList.styles';
-import { ComponentWrapper as Wrapper } from 'components/atoms/ComponentWrapper/ComponentWrapper.styles';
-const UsersList = ({ deleteUser, usersData }) => {
+import { UserProviders } from 'providers/UserProvider';
+const UsersList = () => {
+  const { users } = useContext(UserProviders);
   return (
     <>
-      <Wrapper>
-        <StyledList>
-          {usersData.map((userData) => (
-            <UserListItem filteredUsers={deleteUser} userData={userData} />
-          ))}
-        </StyledList>
-      </Wrapper>
+      <StyledList>
+        {users.map((userData) => (
+          <UserListItem userData={userData} />
+        ))}
+      </StyledList>
     </>
   );
 };

@@ -6,4 +6,7 @@ export const GlobalStyle = createGlobalStyle`
   body,a,button{
       font-family: 'Montserrat', sans-serif;
   }
+  *,body,html{
+    box-sizing:border-box;
+  }
 `;

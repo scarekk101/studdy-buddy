@@ -1,11 +1,10 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
-export const NavItem = styled.a`
+export const NavItem = styled(NavLink)`
   color: #737c8e;
-  font-weight: bold;
-  font-size: ${({ theme }) => theme.fontSize.m};
   cursor: pointer;
-  padding: 0 25px;
   text-align: right;
-  padding-bottom: 15px;
+  margin: 15px 20px 15px auto;
+  font-weight: 700;
 `;

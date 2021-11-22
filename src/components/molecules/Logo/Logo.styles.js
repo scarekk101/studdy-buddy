@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 
-export const LogoItem = styled.a`
+export const LogoWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.darkGrey};
+  width: 100%;
+`;
+
+export const LogoHeader = styled.h1`
+  text-align: right;
   font-size: ${({ theme }) => theme.fontSize.l};
   color: ${({ theme }) => theme.colors.white};
-  text-align: right;
-  word-wrap: break-word;
-  padding: 15px;
-  margin: 20px 0 50px 0;
   font-weight: 700;
+  text-align: right;
+  margin-right: 20px;
 `;
