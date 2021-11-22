@@ -1,11 +1,9 @@
-import { React, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Dashboard from 'views/Dashboard';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { theme } from 'assets/styles/Theme';
-import { users } from 'data/users';
 import AddUser from 'views/AddUser';
+import Dashboard from 'views/Dashboard';
 import MainTemplate from 'templates/MainTemplate/MainTemplate';
 import UserProvider from 'providers/UserProvider';
 

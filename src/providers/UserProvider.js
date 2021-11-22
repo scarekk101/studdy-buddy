@@ -8,7 +8,6 @@ export const UserProviders = React.createContext({
 });
 
 const UserProvider = ({ children }) => {
-
   const [usersData, setUsers] = useState(users);
 
   function deleteUser(name) {

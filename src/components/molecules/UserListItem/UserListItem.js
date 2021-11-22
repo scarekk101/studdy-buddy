@@ -8,7 +8,7 @@ import {
 } from 'components/molecules/UserListItem/UserListItem.styles';
 import { UserProviders } from 'providers/UserProvider';
 
-const UserListItem = ({ userData: { average, name, attendance }}) => {
+const UserListItem = ({ userData: { average, name, attendance } }) => {
   const { deleteUser } = useContext(UserProviders);
   return (
     <Wrapper>
